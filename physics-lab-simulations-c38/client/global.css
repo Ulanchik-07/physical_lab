@@ -1,0 +1,164 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme for PhysicLab - Scientific Dark Mode with Neon Accents
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Dark scientific theme */
+    --background: 222 40% 8%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 50% 14%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 50% 14%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Cyan neon as primary */
+    --primary: 180 100% 50%;
+    --primary-foreground: 222 40% 8%;
+
+    /* Subtle secondary */
+    --secondary: 222 30% 25%;
+    --secondary-foreground: 210 40% 96%;
+
+    /* Muted tones */
+    --muted: 222 30% 30%;
+    --muted-foreground: 210 25% 70%;
+
+    /* Amber warning accent */
+    --accent: 35 100% 50%;
+    --accent-foreground: 222 40% 8%;
+
+    /* Destructive red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 25%;
+    --input: 222 40% 20%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 40% 12%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 222 40% 8%;
+    --sidebar-accent: 35 100% 50%;
+    --sidebar-accent-foreground: 222 40% 8%;
+    --sidebar-border: 222 30% 25%;
+    --sidebar-ring: 180 100% 50%;
+  }
+
+  .dark {
+    --background: 222 40% 8%;
+    --foreground: 210 40% 96%;
+    --card: 222 50% 14%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 50% 14%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 222 40% 8%;
+    --secondary: 222 30% 25%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 222 30% 30%;
+    --muted-foreground: 210 25% 70%;
+    --accent: 35 100% 50%;
+    --accent-foreground: 222 40% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 25%;
+    --input: 222 40% 20%;
+    --ring: 180 100% 50%;
+    --sidebar-background: 222 40% 12%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 222 40% 8%;
+    --sidebar-accent: 35 100% 50%;
+    --sidebar-accent-foreground: 222 40% 8%;
+    --sidebar-border: 222 30% 25%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    color: hsl(var(--foreground));
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+}
+
+@layer components {
+  .btn-neon-cyan {
+    @apply bg-neon-cyan text-gray-900 hover:shadow-lg hover:shadow-neon-cyan/50 transition-all font-semibold px-6 py-2 rounded-lg;
+  }
+
+  .btn-neon-amber {
+    @apply bg-neon-amber text-gray-900 hover:shadow-lg hover:shadow-neon-amber/50 transition-all font-semibold px-6 py-2 rounded-lg;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(
+        rgba(0, 217, 255, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .card-glass {
+    @apply bg-card/80 backdrop-blur border border-border rounded-xl;
+  }
+
+  .neon-border {
+    @apply border border-neon-cyan shadow-lg shadow-neon-cyan/20;
+  }
+
+  .neon-border-amber {
+    @apply border border-neon-amber shadow-lg shadow-neon-amber/20;
+  }
+
+  .glow-text {
+    @apply text-neon-cyan drop-shadow-[0_0_10px_rgba(0,217,255,0.5)];
+  }
+}
